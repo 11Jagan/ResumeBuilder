@@ -57,7 +57,7 @@ const AuthModal = ({ isOpen, onClose, onLogin, onRegister, mode = 'login' }) => 
 
     try {
       const endpoint = mode === 'login' ? '/api/auth/login' : '/api/auth/register';
-      const response = await fetch(`http://localhost:5000${endpoint}`, {
+      const response = await fetch(`https://resumebuilder-ih9k.onrender.com${endpoint}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
