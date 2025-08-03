@@ -273,8 +273,12 @@ const ResumeBuilder = ({ onBackToLanding, isPreviewMode, setIsPreviewMode, setSa
   // Define saveResume function first
   const saveResume = useCallback(async () => {
     try {
+      console.log('🚀 Attempting to save resume...');
+      console.log('Is authenticated:', isAuthenticated);
+      
       // Check if resume is still loading
       if (isLoadingResume) {
+        console.log('❌ Resume is still loading, aborting save');
         return;
       }
       
@@ -313,6 +317,7 @@ const ResumeBuilder = ({ onBackToLanding, isPreviewMode, setIsPreviewMode, setSa
 
       if (currentEditingId) {
         // Update existing resume
+        console.log('🔄 Updating existing resume with ID:', currentEditingId);
         response = await apiCall(`/api/resumes/${currentEditingId}`, {
           method: 'PUT',
           body: JSON.stringify(dataToSend),
@@ -320,6 +325,7 @@ const ResumeBuilder = ({ onBackToLanding, isPreviewMode, setIsPreviewMode, setSa
         successMessage = 'Resume updated successfully!';
       } else {
         // Create new resume
+        console.log('➕ Creating new resume');
         response = await apiCall('/api/resumes', {
           method: 'POST',
           body: JSON.stringify(dataToSend),
@@ -328,6 +334,7 @@ const ResumeBuilder = ({ onBackToLanding, isPreviewMode, setIsPreviewMode, setSa
       }
 
       const data = await response.json();
+      console.log('📡 Response from server:', data);
       if (data.success) {
         setSuccessNotification({
           isVisible: true,
@@ -350,7 +357,8 @@ const ResumeBuilder = ({ onBackToLanding, isPreviewMode, setIsPreviewMode, setSa
         }
       }
     } catch (error) {
-      console.error('Error saving resume:', error);
+      console.error('❌ Error saving resume:', error);
+      console.error('❌ Error details:', error.message);
       const currentEditingId = editingResumeId || editingResumeIdRef.current;
       alert(`Error ${currentEditingId ? 'updating' : 'saving'} resume. Please try again.`);
     }
