@@ -2,6 +2,8 @@
 
 A modern, full-stack resume builder application that helps users create professional, ATS-friendly resumes with an intuitive interface.
 
+##Live Demo: https://resume-builder-sigma-rust.vercel.app/
+
 ## 🚀 Features
 
 ### Core Features
