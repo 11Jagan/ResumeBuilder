@@ -75,9 +75,8 @@ export const UserProvider = ({ children }) => {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
       
-      const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
-      console.log('Environment variables:', process.env);
-      console.log('REACT_APP_API_URL:', process.env.REACT_APP_API_URL);
+      // Use deployed backend URL directly
+      const API_BASE_URL = 'https://resumebuilder-ih9k.onrender.com';
       console.log('API_BASE_URL:', API_BASE_URL);
       console.log('Full URL:', `${API_BASE_URL}${url}`);
       const response = await fetch(`${API_BASE_URL}${url}`, {
