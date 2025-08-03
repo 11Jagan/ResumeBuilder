@@ -1,268 +1,167 @@
-# 📄 Resume Generator
+# ResumeGen - Professional Resume Builder
 
-A full-stack Resume Generator web application built with the MERN stack (MongoDB, Express.js, React.js, Node.js) following the MVC (Model-View-Controller) pattern on the backend.
+A modern, full-stack resume builder application that helps users create professional, ATS-friendly resumes with an intuitive interface.
 
 ## 🚀 Features
 
-### Frontend (React + Tailwind CSS)
-- **Interactive Form**: Complete resume form with all necessary fields
-- **Live Preview**: Real-time preview as you type
-- **Two Templates**: Choose between two professional resume designs
-- **PDF Export**: Export resume as PDF using react-to-print
+### Core Features
+- **Professional Templates**: Multiple ATS-optimized resume templates
+- **Real-time Preview**: Live preview as you type
+- **PDF Export**: Download your resume as a professional PDF
+- **User Authentication**: Secure sign-up/sign-in system
+- **Save & Edit**: Save your progress and edit anytime
 - **Responsive Design**: Works perfectly on all devices
-- **Auto-scroll**: Preview automatically scrolls as user types
-- **Save & Load**: Save resumes and load them later
 
-### Backend (Node.js + Express + LowDB)
-- **MVC Architecture**: Clean separation of concerns
-- **RESTful API**: Complete CRUD operations
-- **JSON Database**: Uses LowDB for simple data storage
-- **Data Validation**: Input validation and error handling
-- **No Authentication**: Open for guest users
-
-### Resume Sections
-- **Personal Information**: Name, email, phone, location, LinkedIn
-- **Professional Summary**: Compelling career overview
-- **Education**: Multiple education entries with dates, GPA, field
-- **Work Experience**: Detailed job history with descriptions
-- **Skills**: Comma-separated skills with visual tags
-- **Projects**: Portfolio projects with technologies and links
-- **Achievements**: Awards and accomplishments
+### Technical Features
+- **ATS Optimized**: Templates designed to pass Applicant Tracking Systems
+- **Modern UI/UX**: Clean, professional interface with smooth animations
+- **Secure Backend**: JWT authentication with bcrypt password hashing
+- **Data Persistence**: Save and manage multiple resumes
+- **Form Validation**: Smart validation with user-friendly error messages
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- **React.js** - Component-based UI library
+- **React.js** - Modern UI framework
 - **Tailwind CSS** - Utility-first CSS framework
-- **Axios** - HTTP client for API calls
-- **react-to-print** - PDF export functionality
-- **react-icons** - Beautiful icon library
+- **React Icons** - Beautiful icon library
+- **React-to-Print** - PDF export functionality
 
 ### Backend
-- **Node.js** - JavaScript runtime
+- **Node.js** - Server runtime
 - **Express.js** - Web application framework
-- **LowDB** - JSON file database
-- **CORS** - Cross-origin resource sharing
-- **UUID** - Unique identifier generation
+- **LowDB** - Lightweight JSON database
+- **JWT** - JSON Web Tokens for authentication
+- **bcryptjs** - Password hashing
 
 ## 📁 Project Structure
 
 ```
-resume-generator/
-├── backend/
-│   ├── controllers/
-│   │   └── resumeController.js       ← Request handling logic
-│   ├── models/
-│   │   └── resumeModel.js            ← Data model & validation
-│   ├── routes/
-│   │   └── resumeRoutes.js           ← API endpoints
-│   ├── db/
-│   │   └── lowdbConfig.js            ← LowDB configuration
-│   └── server.js                     ← Express server setup
-│
-├── frontend/
+Resume/
+├── frontend/                 # React frontend application
 │   ├── public/
-│   │   └── index.html                ← Main HTML file
 │   ├── src/
-│   │   ├── components/
-│   │   │   ├── ResumeForm.jsx        ← Form component
-│   │   │   ├── ResumePreview.jsx     ← Preview component
-│   │   │   ├── TemplateOne.jsx       ← Template 1 design
-│   │   │   └── TemplateTwo.jsx       ← Template 2 design
-│   │   ├── App.jsx                   ← Main app component
-│   │   └── index.js                  ← React entry point
-│   └── tailwind.config.js           ← Tailwind configuration
-│
-├── package.json                     ← Root package.json
-└── README.md                        ← This file
+│   │   ├── components/      # React components
+│   │   ├── context/         # React context providers
+│   │   └── index.js         # Entry point
+│   └── package.json
+├── backend/                  # Node.js backend server
+│   ├── controllers/         # Request handlers
+│   ├── middleware/          # Authentication middleware
+│   ├── models/             # Data models
+│   ├── routes/             # API routes
+│   ├── db/                 # Database files
+│   └── server.js           # Server entry point
+└── README.md
 ```
 
-## 🚀 Installation & Setup
+## 🚀 Getting Started
 
 ### Prerequisites
 - Node.js (v14 or higher)
-- npm or yarn package manager
+- npm or yarn
 
-### Step 1: Clone the Repository
-```bash
-git clone <repository-url>
-cd resume-generator
-```
+### Installation
 
-### Step 2: Install Dependencies
-```bash
-# Install root dependencies
-npm install
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/resume-builder.git
+   cd resume-builder
+   ```
 
-# Install backend dependencies
-cd backend
-npm install
+2. **Install backend dependencies**
+   ```bash
+   cd backend
+   npm install
+   ```
 
-# Install frontend dependencies
-cd ../frontend
-npm install
+3. **Install frontend dependencies**
+   ```bash
+   cd ../frontend
+   npm install
+   ```
 
-# Return to root
-cd ..
-```
+### Running the Application
 
-### Step 3: Start the Application
+1. **Start the backend server**
+   ```bash
+   cd backend
+   npm start
+   ```
+   The backend will run on `http://localhost:5000`
 
-#### Option A: Run Both Frontend and Backend Together
-```bash
-npm run dev
-```
+2. **Start the frontend development server**
+   ```bash
+   cd frontend
+   npm start
+   ```
+   The frontend will run on `http://localhost:3000`
 
-#### Option B: Run Separately
-```bash
-# Terminal 1 - Start Backend
-cd backend
-npm run dev
+3. **Open your browser**
+   Navigate to `http://localhost:3000` to use the application
 
-# Terminal 2 - Start Frontend
-cd frontend
-npm start
-```
+## 📖 Usage
 
-### Step 4: Access the Application
-- **Frontend**: http://localhost:3000
-- **Backend API**: http://localhost:5000
-- **API Health Check**: http://localhost:5000/api/health
+1. **Create Account**: Sign up for a new account or sign in
+2. **Choose Template**: Browse and select from professional templates
+3. **Fill Information**: Enter your personal, professional, and educational details
+4. **Preview**: See your resume in real-time as you edit
+5. **Export**: Download your resume as a professional PDF
+6. **Save**: Your progress is automatically saved
 
-## 📋 API Endpoints
+## 🔧 API Endpoints
 
-### Resume Management
-- `GET /api/resumes` - Get all resumes
+### Authentication
+- `POST /api/auth/register` - User registration
+- `POST /api/auth/login` - User login
+- `GET /api/auth/verify` - Verify JWT token
+
+### Resumes
+- `GET /api/resumes` - Get user's resumes
 - `POST /api/resumes` - Create new resume
-- `GET /api/resumes/:id` - Get resume by ID
+- `GET /api/resumes/:id` - Get specific resume
 - `PUT /api/resumes/:id` - Update resume
 - `DELETE /api/resumes/:id` - Delete resume
 
-### Health Check
-- `GET /api/health` - API status check
-
 ## 🎨 Templates
 
-### Template 1 (Modern)
-- Clean, professional design
-- Blue accent colors
-- Left-aligned layout
-- Skill tags with background colors
+The application includes multiple professional templates:
+- **Template One**: Classic professional layout
+- **Template Two**: Modern clean design
+- More templates coming soon!
 
-### Template 2 (Classic)
-- Traditional serif font
-- Centered header
-- Two-column layout
-- Dark accent colors
+## 🔒 Security Features
 
-## 💡 Usage Guide
-
-### Creating a Resume
-1. **Fill Personal Information**: Enter your name, email, phone, location
-2. **Write Summary**: Add a compelling professional summary
-3. **Add Education**: Include your academic background
-4. **Add Experience**: List your work history
-5. **Add Skills**: Enter your technical and soft skills
-6. **Add Projects**: Showcase your portfolio projects
-7. **Add Achievements**: Include awards and accomplishments
-
-### Customizing Your Resume
-- **Switch Templates**: Use the template buttons to change designs
-- **Live Preview**: See changes instantly as you type
-- **Save Resume**: Click "Save Resume" to store your work
-- **Load Resume**: Access saved resumes from the bottom section
-- **Export PDF**: Click "Export PDF" to download your resume
-
-### Tips for Best Results
-- **Be Specific**: Use concrete examples and metrics
-- **Keep it Concise**: Aim for 1-2 pages maximum
-- **Use Action Verbs**: Start bullet points with strong verbs
-- **Proofread**: Check for spelling and grammar errors
-- **Customize**: Tailor content for specific job applications
-
-## 🔧 Development
-
-### Adding New Templates
-1. Create a new template component in `frontend/src/components/`
-2. Follow the existing template structure
-3. Add the template to the switch statement in `ResumePreview.jsx`
-4. Add a template button in `App.jsx`
-
-### Modifying the Database
-The application uses LowDB (JSON file) for simplicity. For production:
-- Replace LowDB with MongoDB or PostgreSQL
-- Add user authentication
-- Implement data encryption
-- Add backup and recovery features
-
-### Styling Customization
-- Modify `frontend/src/index.css` for global styles
-- Update `frontend/tailwind.config.js` for theme changes
-- Edit individual template components for layout changes
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-**Port Already in Use**
-```bash
-# Kill process on port 3000
-npx kill-port 3000
-
-# Kill process on port 5000
-npx kill-port 5000
-```
-
-**Module Not Found Errors**
-```bash
-# Clear node_modules and reinstall
-rm -rf node_modules package-lock.json
-npm install
-```
-
-**Tailwind CSS Not Working**
-```bash
-# Rebuild Tailwind
-cd frontend
-npx tailwindcss -i ./src/index.css -o ./dist/output.css --watch
-```
-
-**PDF Export Issues**
-- Ensure the browser allows popups
-- Check that all fonts are loaded
-- Try a different browser if issues persist
-
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+- **JWT Authentication**: Secure token-based authentication
+- **Password Hashing**: bcrypt password encryption
+- **Input Validation**: Comprehensive form validation
+- **CORS Protection**: Cross-origin request protection
+- **Rate Limiting**: API request rate limiting
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📞 Support
+## 📝 License
 
-If you encounter any issues or have questions:
-- Check the troubleshooting section above
-- Review the API documentation
-- Open an issue on GitHub
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🎯 Roadmap
+## 👨‍💻 Developer
 
-### Future Enhancements
-- [ ] User authentication and accounts
-- [ ] More resume templates
-- [ ] Resume scoring and suggestions
-- [ ] ATS optimization features
-- [ ] Dark/Light mode toggle
-- [ ] Resume sharing functionality
-- [ ] Mobile app version
-- [ ] Integration with job boards
+**Developed by [Jagan Mohan](https://konthamjagan.netlify.app/)**
+
+Visit my portfolio: [konthamjagan.netlify.app](https://konthamjagan.netlify.app/)
+
+## 🙏 Acknowledgments
+
+- React.js community for the amazing framework
+- Tailwind CSS for the beautiful styling system
+- All contributors and users of this project
 
 ---
 
-**Happy Resume Building! 🚀** 
+**Made with ❤️ by Jagan Mohan** 
