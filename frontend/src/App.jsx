@@ -49,6 +49,7 @@ function App() {
           onStartCreating={handleStartCreating}
           isEditing={isEditing}
           clearForm={handleClearForm}
+          onLogout={handleClearForm}
         />
         <main>
           {currentView === 'landing' && (

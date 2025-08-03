@@ -12,7 +12,8 @@ const Header = ({
   saveResume,
   onStartCreating,
   isEditing,
-  clearForm
+  clearForm,
+  onLogout
 }) => {
   const { user, isAuthenticated, logout } = useUser();
   const [showAuthModal, setShowAuthModal] = useState(false);
@@ -46,6 +47,10 @@ const Header = ({
   const handleLogout = () => {
     const userName = user?.name || 'User';
     logout();
+    // Clear form when user logs out
+    if (onLogout) {
+      onLogout();
+    }
     // Show logout notification
     setFlashNotification({
       isVisible: true,
@@ -60,7 +65,7 @@ const Header = ({
 
   return (
     <>
-      <nav className="bg-white shadow-sm border-b">
+      <nav className="bg-white shadow-sm border-b sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-3 sm:py-4">
             {/* Left side - Logo and Back button */}
