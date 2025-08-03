@@ -1,0 +1,177 @@
+{
+  "resumes": [
+    {
+      "id": "be703392-fe39-4517-a7ce-acefa8d95ed0",
+      "personalInfo": {
+        "name": "Bontha Sai",
+        "email": "bonthasai600@gmail.com",
+        "phone": "8106399588",
+        "location": "Hyd,TG",
+        "linkedin": "https://linkedin.com/"
+      },
+      "summary": "Developed and maintained responsive web interfaces using React.js, HTML5, CSS3, and Tailwind\n\nCollaborated with UX/UI designers to implement modern design principles and improve user experience\n\nOptimized components for maximum speed and scalability across multiple devices",
+      "education": [
+        {
+          "id": 1,
+          "institution": "Sphoorthy Engineering College",
+          "degree": "B-tech",
+          "field": "CSE",
+          "startDate": "2025-06",
+          "endDate": "2025-08",
+          "gpa": "8.82"
+        },
+        {
+          "id": 1754150253677,
+          "institution": "Institute",
+          "degree": "masters",
+          "field": "CSE",
+          "startDate": "2025-08",
+          "endDate": "2027-12",
+          "gpa": "8.9"
+        }
+      ],
+      "experience": [
+        {
+          "id": 1,
+          "company": "Google",
+          "position": "Developer",
+          "startDate": "2023-06",
+          "endDate": "2025-08",
+          "description": "Developed and maintained responsive web interfaces using React.js, HTML5, CSS3, and Tailwind\n\nCollaborated with UX/UI designers to implement modern design principles and improve user experience\n\nOptimized components for maximum speed and scalability across multiple devices"
+        },
+        {
+          "id": 1754150204247,
+          "company": "Google",
+          "position": "Software Engineer",
+          "startDate": "2025-03",
+          "endDate": "2025-08",
+          "description": "Collaborated with UX/UI designers to implement modern design principles and improve user experience\n\nOptimized components for maximum speed and scalability across multiple devices"
+        }
+      ],
+      "skills": "Frontend:Html,css,js,bootstrap,React\nBackend:Nodejs,Express,MongoDB,Mysql\ntools:git,github",
+      "projects": [
+        {
+          "id": 1,
+          "name": "Vid",
+          "description": "Developed and maintained responsive web interfaces using React.js, HTML5, CSS3, and Tailwind\n\nCollaborated with UX/UI designers to implement modern design principles and improve user experience\n\nOptimized components for maximum speed and scalability across multiple devices",
+          "technologies": "React,Express",
+          "link": "https://github.com/"
+        },
+        {
+          "id": 1754150047701,
+          "name": "Travel Planner",
+          "description": "Developed and maintained responsive web interfaces using React.js, HTML5, CSS3, and Tailwind\n\nCollaborated with UX/UI designers to implement modern design principles and improve user experience\n\nOptimized components for maximum speed and scalability across multiple devices",
+          "technologies": "React,Nodejs",
+          "link": "https://github.com/"
+        },
+        {
+          "id": 1754150303412,
+          "name": "React",
+          "description": "Collaborated with UX/UI designers to implement modern design principles and improve user experience\n\nOptimized components for maximum speed and scalability across multiple devices",
+          "technologies": "React,Nodejs,Bootstrap",
+          "link": "https://github.com/"
+        }
+      ],
+      "achievements": [
+        {
+          "id": 1,
+          "title": "Nptel",
+          "description": "Completed a nptel course on python programming language"
+        }
+      ],
+      "template": 2,
+      "font": "Segoe UI",
+      "sectionOrder": [
+        "summary",
+        "experience",
+        "education",
+        "skills",
+        "projects",
+        "achievements"
+      ],
+      "userId": "471d5e54-3609-49a9-a9f6-c1a870770d14",
+      "createdAt": "2025-08-03T06:24:24.224Z",
+      "updatedAt": "2025-08-03T07:36:41.671Z"
+    },
+    {
+      "id": "91d46422-698c-430b-b55f-693fad2b2582",
+      "personalInfo": {
+        "name": "Bontha Sai",
+        "email": "bonthasai@gmail.com",
+        "phone": "987654321",
+        "location": "Hyd,Tg",
+        "linkedin": "https://linkedin.com/"
+      },
+      "summary": "",
+      "education": [
+        {
+          "id": 1,
+          "institution": "",
+          "degree": "",
+          "field": "",
+          "startDate": "",
+          "endDate": "",
+          "gpa": ""
+        }
+      ],
+      "experience": [
+        {
+          "id": 1,
+          "company": "",
+          "position": "",
+          "startDate": "",
+          "endDate": "",
+          "description": ""
+        }
+      ],
+      "skills": "",
+      "projects": [
+        {
+          "id": 1,
+          "name": "",
+          "description": "",
+          "technologies": "",
+          "link": ""
+        }
+      ],
+      "achievements": [
+        {
+          "id": 1,
+          "title": "",
+          "description": ""
+        }
+      ],
+      "template": 1,
+      "font": "Times New Roman",
+      "sectionOrder": [
+        "summary",
+        "experience",
+        "education",
+        "skills",
+        "projects",
+        "achievements"
+      ],
+      "userId": null,
+      "createdAt": "2025-08-03T06:44:50.602Z",
+      "updatedAt": "2025-08-03T06:44:50.602Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "471d5e54-3609-49a9-a9f6-c1a870770d14",
+      "email": "resume@gmail.com",
+      "password": "$2a$10$JgFkgyrV5b/JYJwlzrRHGO3rWjrBRlG9wDabEnsvAOKeIlQZqTy7G",
+      "name": "resume",
+      "createdAt": "2025-08-02T14:51:27.656Z",
+      "updatedAt": "2025-08-02T14:51:27.657Z"
+    },
+    {
+      "id": "6247dae2-58cb-4d61-ba0d-c62f9e579995",
+      "email": "test@example.com",
+      "password": "$2a$10$rW6U5RU7pJhsTeTZYpCsPePmDV2kpWGydgRULJWClA5saenXU9ykG",
+      "name": "Test User",
+      "createdAt": "2025-08-02T15:03:49.131Z",
+      "updatedAt": "2025-08-02T15:03:49.132Z"
+    }
+  ]
+}
