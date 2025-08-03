@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
-    ? ['https://your-vercel-app.vercel.app', 'https://your-vercel-app.vercel.app/', 'https://your-app-name.onrender.com'] 
+    ? ['https://resume-builder-sigma-rust.vercel.app', 'https://resume-builder-sigma-rust.vercel.app/', 'https://resumebuilder-ih9k.onrender.com'] 
     : ['http://localhost:3000'],
   credentials: true
 }));
