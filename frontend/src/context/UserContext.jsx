@@ -77,8 +77,6 @@ export const UserProvider = ({ children }) => {
       
       // Use deployed backend URL directly
       const API_BASE_URL = 'https://resumebuilder-ih9k.onrender.com';
-      console.log('API_BASE_URL:', API_BASE_URL);
-      console.log('Full URL:', `${API_BASE_URL}${url}`);
       const response = await fetch(`${API_BASE_URL}${url}`, {
         ...options,
         headers,

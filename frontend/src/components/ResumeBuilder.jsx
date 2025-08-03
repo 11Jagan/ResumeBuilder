@@ -101,12 +101,12 @@ const ResumeBuilder = ({ onBackToLanding, isPreviewMode, setIsPreviewMode, setSa
       setServerError(null);
       
       // Only fetch resumes if the user is authenticated
-              if (!isAuthenticated) {
-          setSavedResumes([]);
-          return;
-        }
+      if (!isAuthenticated) {
+        setSavedResumes([]);
+        return;
+      }
       
-                    // Add cache-busting parameter to ensure fresh data
+      // Add cache-busting parameter to ensure fresh data
       const timestamp = Date.now();
       
       const response = await apiCall(`/api/resumes?t=${timestamp}`);
@@ -119,7 +119,6 @@ const ResumeBuilder = ({ onBackToLanding, isPreviewMode, setIsPreviewMode, setSa
       
       const data = await response.json();
       if (data.success) {
-
         setSavedResumes(data.data);
       } else {
         console.error('API returned error:', data.error);
@@ -129,7 +128,7 @@ const ResumeBuilder = ({ onBackToLanding, isPreviewMode, setIsPreviewMode, setSa
       console.error('Error fetching saved resumes:', error);
       setSavedResumes([]);
       
-      if (error.message.includes('server')) {
+      if (error.message.includes('server') || error.message.includes('timeout')) {
         setServerError(error.message);
       } else if (error.message === 'Authentication required') {
         // User is not authenticated
@@ -140,8 +139,12 @@ const ResumeBuilder = ({ onBackToLanding, isPreviewMode, setIsPreviewMode, setSa
 
   // Load saved resumes on component mount and when authentication changes
   useEffect(() => {
+    // Add a small delay to prevent rapid successive calls
+    const timer = setTimeout(() => {
+      fetchSavedResumes();
+    }, 1000);
     
-    fetchSavedResumes();
+    return () => clearTimeout(timer);
   }, [isAuthenticated, fetchSavedResumes]);
 
   // Pass editing state to parent component
@@ -273,12 +276,8 @@ const ResumeBuilder = ({ onBackToLanding, isPreviewMode, setIsPreviewMode, setSa
   // Define saveResume function first
   const saveResume = useCallback(async () => {
     try {
-      console.log('🚀 Attempting to save resume...');
-      console.log('Is authenticated:', isAuthenticated);
-      
       // Check if resume is still loading
       if (isLoadingResume) {
-        console.log('❌ Resume is still loading, aborting save');
         return;
       }
       
@@ -317,7 +316,6 @@ const ResumeBuilder = ({ onBackToLanding, isPreviewMode, setIsPreviewMode, setSa
 
       if (currentEditingId) {
         // Update existing resume
-        console.log('🔄 Updating existing resume with ID:', currentEditingId);
         response = await apiCall(`/api/resumes/${currentEditingId}`, {
           method: 'PUT',
           body: JSON.stringify(dataToSend),
@@ -325,7 +323,6 @@ const ResumeBuilder = ({ onBackToLanding, isPreviewMode, setIsPreviewMode, setSa
         successMessage = 'Resume updated successfully!';
       } else {
         // Create new resume
-        console.log('➕ Creating new resume');
         response = await apiCall('/api/resumes', {
           method: 'POST',
           body: JSON.stringify(dataToSend),
@@ -334,7 +331,6 @@ const ResumeBuilder = ({ onBackToLanding, isPreviewMode, setIsPreviewMode, setSa
       }
 
       const data = await response.json();
-      console.log('📡 Response from server:', data);
       if (data.success) {
         setSuccessNotification({
           isVisible: true,
@@ -357,8 +353,7 @@ const ResumeBuilder = ({ onBackToLanding, isPreviewMode, setIsPreviewMode, setSa
         }
       }
     } catch (error) {
-      console.error('❌ Error saving resume:', error);
-      console.error('❌ Error details:', error.message);
+      console.error('Error saving resume:', error);
       const currentEditingId = editingResumeId || editingResumeIdRef.current;
       alert(`Error ${currentEditingId ? 'updating' : 'saving'} resume. Please try again.`);
     }
