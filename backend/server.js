@@ -18,8 +18,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
+console.log('Loading routes...');
 app.use('/api/resumes', resumeRoutes);
 app.use('/api/auth', authRoutes);
+console.log('Routes loaded successfully');
 
 // Root endpoint
 app.get('/', (req, res) => {
