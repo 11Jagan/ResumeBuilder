@@ -76,6 +76,8 @@ export const UserProvider = ({ children }) => {
       const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
       
       const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+      console.log('API_BASE_URL:', API_BASE_URL);
+      console.log('Full URL:', `${API_BASE_URL}${url}`);
       const response = await fetch(`${API_BASE_URL}${url}`, {
         ...options,
         headers,
