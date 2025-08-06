@@ -1,0 +1,5 @@
+[33maf74d07[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Update README.md - Clean and simplify documentation
+[33m8572548[m Add sticky header and clear form on logout functionality
+[33me4de50a[m Fix infinite API call loop and remove debug logs
+[33mabf735c[m Add debugging logs to saveResume function
+[33ma336827[m Fix AuthModal hardcoded localhost URL
