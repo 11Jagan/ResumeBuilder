@@ -88,7 +88,8 @@ export const UserProvider = ({ children }) => {
         if (origin.includes('localhost:3000') || origin.includes('127.0.0.1:3000')) {
           API_BASE_URL = 'http://localhost:5000';
         } else {
-          API_BASE_URL = origin;
+          // In production without env, default to deployed backend
+          API_BASE_URL = 'https://resumebuilder-ih9k.onrender.com';
         }
       } else {
         API_BASE_URL = 'https://resumebuilder-ih9k.onrender.com';
