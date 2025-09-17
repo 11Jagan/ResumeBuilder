@@ -57,7 +57,20 @@ const AuthModal = ({ isOpen, onClose, onLogin, onRegister, mode = 'login' }) => 
 
     try {
       const endpoint = mode === 'login' ? '/api/auth/login' : '/api/auth/register';
-      const response = await fetch(`https://resumebuilder-ih9k.onrender.com${endpoint}`, {
+      let API_BASE_URL;
+      if (typeof process !== 'undefined' && process.env && process.env.REACT_APP_API_URL) {
+        API_BASE_URL = process.env.REACT_APP_API_URL;
+      } else if (typeof window !== 'undefined' && window.location) {
+        const origin = window.location.origin || '';
+        if (origin.includes('localhost:3000') || origin.includes('127.0.0.1:3000')) {
+          API_BASE_URL = 'http://localhost:5000';
+        } else {
+          API_BASE_URL = origin;
+        }
+      } else {
+        API_BASE_URL = 'https://resumebuilder-ih9k.onrender.com';
+      }
+      const response = await fetch(`${API_BASE_URL}${endpoint}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

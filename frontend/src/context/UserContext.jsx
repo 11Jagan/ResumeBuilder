@@ -75,8 +75,24 @@ export const UserProvider = ({ children }) => {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
       
-      // Use deployed backend URL directly
-      const API_BASE_URL = 'https://resumebuilder-ih9k.onrender.com';
+      // Determine API base URL:
+      // 1) REACT_APP_API_URL if provided
+      // 2) If running frontend on localhost:3000, default to backend at localhost:5000
+      // 3) Same-origin fallback
+      // 4) Deployed default
+      let API_BASE_URL;
+      if (typeof process !== 'undefined' && process.env && process.env.REACT_APP_API_URL) {
+        API_BASE_URL = process.env.REACT_APP_API_URL;
+      } else if (typeof window !== 'undefined' && window.location) {
+        const origin = window.location.origin || '';
+        if (origin.includes('localhost:3000') || origin.includes('127.0.0.1:3000')) {
+          API_BASE_URL = 'http://localhost:5000';
+        } else {
+          API_BASE_URL = origin;
+        }
+      } else {
+        API_BASE_URL = 'https://resumebuilder-ih9k.onrender.com';
+      }
       const response = await fetch(`${API_BASE_URL}${url}`, {
         ...options,
         headers,

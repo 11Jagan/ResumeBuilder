@@ -359,10 +359,20 @@ const ResumeBuilder = ({ onBackToLanding, isPreviewMode, setIsPreviewMode, setSa
     }
      }, [editingResumeId, resumeData, selectedTemplate, selectedFont, sectionOrder, isLoadingResume, savedResumes, apiCall, fetchSavedResumes]);
 
-  // Pass save function to parent component (after saveResume is defined)
+  // Avoid parent-child update loops by exposing a stable save function
+  const saveResumeRef = useRef(saveResume);
   useEffect(() => {
-    setSaveResumeFunction(() => saveResume);
-  }, [setSaveResumeFunction, saveResume]);
+    saveResumeRef.current = saveResume;
+  }, [saveResume]);
+
+  // Set stable wrapper once
+  useEffect(() => {
+    if (setSaveResumeFunction) {
+      setSaveResumeFunction(() => (...args) => saveResumeRef.current(...args));
+    }
+    // Intentionally run once to keep stable function in parent
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [setSaveResumeFunction]);
 
   const loadResume = (resume) => {
     // Only allow loading resumes if the user is authenticated or if it's their resume

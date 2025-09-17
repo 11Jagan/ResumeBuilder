@@ -8,12 +8,34 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors({
-  origin: process.env.NODE_ENV === 'production' 
-    ? ['https://resume-builder-sigma-rust.vercel.app', 'https://resume-builder-sigma-rust.vercel.app/', 'https://resumebuilder-ih9k.onrender.com'] 
-    : ['http://localhost:3000'],
-  credentials: true
-}));
+// Robust CORS: allow prod frontends and localhost for local testing against prod
+const allowedOrigins = [
+  'https://resume-builder-sigma-rust.vercel.app',
+  'https://resume-builder-sigma-rust.vercel.app/',
+  'https://resumebuilder-ih9k.onrender.com',
+  // Always allow local dev origins
+  'http://localhost:3000',
+  'http://127.0.0.1:3000',
+  'http://localhost:5173',
+  'http://127.0.0.1:5173'
+];
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true); // non-browser or same-origin
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(new Error('Not allowed by CORS'));
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+app.use(cors(corsOptions));
+// Handle preflight
+app.options('*', cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

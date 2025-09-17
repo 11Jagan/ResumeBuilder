@@ -154,6 +154,68 @@
       "userId": null,
       "createdAt": "2025-08-03T06:44:50.602Z",
       "updatedAt": "2025-08-03T06:44:50.602Z"
+    },
+    {
+      "id": "563e8420-9b2c-46c0-b49e-57d2980a2b68",
+      "personalInfo": {
+        "name": "Jagan Mohan Reddy",
+        "email": "bonthasai@gmail.com",
+        "phone": "1234567890",
+        "location": "Hyd,Tg",
+        "linkedin": "http://localhost:5000/api"
+      },
+      "summary": "",
+      "education": [
+        {
+          "id": 1,
+          "institution": "",
+          "degree": "",
+          "field": "",
+          "startDate": "",
+          "endDate": "",
+          "gpa": ""
+        }
+      ],
+      "experience": [
+        {
+          "id": 1,
+          "company": "",
+          "position": "",
+          "startDate": "",
+          "endDate": "",
+          "description": ""
+        }
+      ],
+      "skills": "",
+      "projects": [
+        {
+          "id": 1,
+          "name": "",
+          "description": "",
+          "technologies": "",
+          "link": ""
+        }
+      ],
+      "achievements": [
+        {
+          "id": 1,
+          "title": "",
+          "description": ""
+        }
+      ],
+      "template": 1,
+      "font": "Times New Roman",
+      "sectionOrder": [
+        "summary",
+        "experience",
+        "education",
+        "skills",
+        "projects",
+        "achievements"
+      ],
+      "userId": "771703c9-39d9-4073-a4ec-5c3aa22075d9",
+      "createdAt": "2025-09-17T13:12:55.671Z",
+      "updatedAt": "2025-09-17T13:12:55.671Z"
     }
   ],
   "users": [
@@ -172,6 +234,14 @@
       "name": "Test User",
       "createdAt": "2025-08-02T15:03:49.131Z",
       "updatedAt": "2025-08-02T15:03:49.132Z"
+    },
+    {
+      "id": "771703c9-39d9-4073-a4ec-5c3aa22075d9",
+      "email": "konthamjaganmohanreddy@gmail.com",
+      "password": "$2a$10$GarjkM5y.FjZ0Lu44Z9bYu5Ii5/TDCEMoZ34OYOY/mhnjELD2QUMu",
+      "name": "Jagan Mohan Reddy",
+      "createdAt": "2025-09-17T13:11:30.920Z",
+      "updatedAt": "2025-09-17T13:11:30.920Z"
     }
   ]
 }
